@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano de Higiene — Sutter Professional</title>
+<style>
+/* ===== GERAL ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; font-size: 13px; background: #f0f0f0; color: #222; }
+
+/* ===== PAINEL DE CONTROLO ===== */
+#painel {
+  background: #1A3A5C;
+  color: #fff;
+  padding: 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+#painel h1 { font-size: 16px; font-weight: bold; width: 100%; margin-bottom: 4px; color: #fff; }
+.campo-label { font-size: 11px; color: #aac4e0; margin-bottom: 3px; }
+#painel input[type="text"], #painel select {
+  padding: 6px 10px; border: none; border-radius: 4px;
+  font-size: 13px; min-width: 180px;
+}
+#painel select { cursor: pointer; }
+.btn {
+  padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;
+  font-size: 13px; font-weight: bold;
+}
+.btn-add  { background: #0D9488; color: #fff; }
+.btn-add:hover { background: #0b7a70; }
+.btn-print { background: #fff; color: #1A3A5C; }
+.btn-print:hover { background: #e8f0f8; }
+.btn-clear { background: #c0392b; color: #fff; }
+.btn-clear:hover { background: #a93226; }
+
+/* logos no painel */
+.logo-upload-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  cursor: pointer; gap: 4px;
+}
+.logo-upload-wrap img { height: 48px; max-width: 120px; object-fit: contain; background: #fff; padding: 2px; border-radius: 3px; }
+.logo-placeholder {
+  height: 48px; min-width: 100px; background: rgba(255,255,255,0.15);
+  border: 1px dashed #aac4e0; border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: #aac4e0; padding: 0 8px;
+}
+input[type="file"] { display: none; }
+
+/* ===== ÁREA IMPRESSÃO ===== */
+#area-impressao {
+  max-width: 900px;
+  margin: 20px auto;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* ===== CABEÇALHO DO PLANO ===== */
+#cabecalho {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 3px solid #1A3A5C;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+#logo-sutter { height: 52px; }
+#info-cliente { text-align: center; }
+#info-cliente .cliente-nome { font-size: 15px; font-weight: bold; color: #1A3A5C; }
+#info-cliente .macro-area { font-size: 13px; color: #0D9488; font-weight: bold; margin-top: 2px; }
+#logo-distribuidor-wrap img, #logo-cliente-wrap img {
+  height: 48px; max-width: 120px; object-fit: contain;
+}
+
+/* ===== TABELA DO PLANO ===== */
+#tabela-plano { width: 100%; border-collapse: collapse; }
+
+/* Cabeçalho da tabela */
+#tabela-plano thead tr {
+  background: #1A3A5C;
+  color: #fff;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+#tabela-plano thead th {
+  padding: 6px 5px; font-size: 11px; text-align: center;
+  border: 1px solid #0d2a45; font-weight: bold; text-transform: uppercase;
+}
+
+/* Linhas */
+#tabela-plano tbody tr { border-bottom: 1px solid #ddd; }
+#tabela-plano tbody tr:nth-child(even) { background: #f7f9fc; }
+#tabela-plano tbody td {
+  padding: 5px 5px; vertical-align: middle; border: 1px solid #ddd;
+  font-size: 11px; text-align: center;
+}
+
+/* Coluna aplicação */
+.td-aplicacao { width: 90px; }
+.aplic-img { width: 44px; height: 44px; object-fit: contain; display: block; margin: 0 auto 2px; }
+.aplic-nome { font-size: 10px; color: #444; line-height: 1.2; }
+
+/* Coluna produto */
+.td-produto { width: 110px; }
+.prod-foto-wrap {
+  width: 52px; height: 52px; border: 1px dashed #ccc; border-radius: 3px;
+  margin: 0 auto 2px; cursor: pointer; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.prod-foto-wrap img { width: 100%; height: 100%; object-fit: contain; }
+.prod-foto-placeholder { font-size: 9px; color: #aaa; text-align: center; padding: 4px; }
+.prod-nome { font-size: 11px; font-weight: bold; color: #1A3A5C; }
+
+/* Coluna frequência */
+.td-freq { width: 70px; }
+.freq-input {
+  width: 100%; border: 1px solid #ccc; border-radius: 3px;
+  padding: 3px 4px; font-size: 11px; text-align: center;
+}
+.freq-input:focus { outline: 1px solid #0D9488; }
+
+/* Coluna diluição */
+.td-dilui { width: 100px; }
+.dilui-texto {
+  width: 100%; border: 1px solid #ccc; border-radius: 3px;
+  padding: 3px 4px; font-size: 11px; text-align: center; margin-bottom: 3px;
+}
+.equip-foto-wrap {
+  width: 48px; height: 36px; border: 1px dashed #ccc; border-radius: 3px;
+  margin: 0 auto; cursor: pointer; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.equip-foto-wrap img { width: 100%; height: 100%; object-fit: contain; }
+.equip-foto-placeholder { font-size: 8px; color: #aaa; }
+
+/* Coluna instruções */
+.td-instrucoes { width: auto; text-align: left; }
+.instrucao-row {
+  display: flex; align-items: center; gap: 4px;
+  padding: 2px 0; border-bottom: 1px dashed #eee;
+}
+.instrucao-row:last-child { border-bottom: none; }
+.picts-wrap { display: flex; gap: 2px; flex-shrink: 0; }
+.pict-img { width: 30px; height: 30px; object-fit: contain; }
+.instrucao-texto { font-size: 10px; color: #333; line-height: 1.3; flex: 1; }
+
+/* Coluna EPI */
+.td-epi { width: 60px; }
+.epi-wrap { display: flex; flex-wrap: wrap; gap: 2px; justify-content: center; }
+.epi-img { width: 28px; height: 28px; object-fit: contain; }
+.epi-placeholder { font-size: 9px; color: #aaa; }
+
+/* Botão remover linha */
+.td-remove { width: 24px; }
+.btn-remove {
+  background: none; border: none; color: #c0392b; cursor: pointer;
+  font-size: 16px; line-height: 1; padding: 2px;
+}
+.btn-remove:hover { color: #a93226; }
+
+/* Mensagem vazia */
+#msg-vazio {
+  text-align: center; padding: 40px 20px; color: #aaa;
+  font-size: 13px; display: none;
+}
+
+/* ===== RODAPÉ ===== */
+#rodape {
+  padding: 6px 14px; border-top: 1px solid #ddd;
+  display: flex; justify-content: flex-end; align-items: center;
+  font-size: 10px; color: #888;
+}
+#rodape input[type="date"] {
+  border: 1px solid #ddd; border-radius: 3px; padding: 2px 5px;
+  font-size: 10px; color: #666;
+}
+
+/* Contador */
+#contador {
+  text-align: center; padding: 6px; font-size: 11px; color: #888;
+  background: #f7f9fc; border-top: 1px solid #eee;
+}
+#contador span { font-weight: bold; color: #1A3A5C; }
+
+/* ===== IMPRESSÃO ===== */
+@media print {
+  body { background: #fff; }
+  #painel { display: none !important; }
+  #area-impressao { box-shadow: none; margin: 0; max-width: 100%; }
+  #contador { display: none; }
+  .btn-remove { display: none; }
+  .prod-foto-placeholder { display: none; }
+  .equip-foto-placeholder { display: none; }
+  .freq-input, .dilui-texto { border: none; }
+  #rodape input[type="date"] { border: none; }
+  .prod-foto-wrap { border: none; }
+  .equip-foto-wrap { border: none; }
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+</style>
+</head>
+<body>
+
+<!-- PAINEL DE CONTROLO -->
+<div id="painel">
+  <h1>🧹 Plano de Higiene — Construtor</h1>
+
+  <!-- Logo Sutter (fixo) -->
+  <div>
+    <div class="campo-label">Marca</div>
+    <img src="img/logo_sutter.png" id="logo-sutter-painel" style="height:40px;background:#fff;padding:3px;border-radius:3px;" onerror="this.style.display='none'">
+  </div>
+
+  <!-- Cliente -->
+  <div>
+    <div class="campo-label">Cliente / Estabelecimento</div>
+    <input type="text" id="inp-cliente" placeholder="Nome do cliente" oninput="actualizarCabecalho()">
+  </div>
+
+  <!-- Macro área -->
+  <div>
+    <div class="campo-label">Macro Área</div>
+    <select id="sel-macroArea" onchange="actualizarCabecalho(); actualizarFiltros()">
+      <option value="">-- Seleccionar --</option>
+      <option>Cozinha</option>
+      <option>WC / Geral</option>
+      <option>Hall</option>
+      <option>Áreas Comuns</option>
+      <option>Quartos</option>
+      <option>Consultório</option>
+      <option>Escritório</option>
+      <option>Bloco</option>
+      <option>Atendimento</option>
+    </select>
+  </div>
+
+  <!-- Produto -->
+  <div>
+    <div class="campo-label">Produto</div>
+    <select id="sel-produto">
+      <option value="">-- Seleccionar área primeiro --</option>
+    </select>
+  </div>
+
+  <!-- Aplicação -->
+  <div>
+    <div class="campo-label">Aplicação</div>
+    <select id="sel-aplicacao">
+      <option value="">-- Seleccionar produto --</option>
+    </select>
+  </div>
+
+  <!-- Botões -->
+  <div style="display:flex;gap:8px;align-items:flex-end;">
+    <button class="btn btn-add" onclick="adicionarLinha()">+ Adicionar linha</button>
+    <button class="btn btn-print" onclick="window.print()">🖨 Imprimir</button>
+    <button class="btn btn-clear" onclick="limparTudo()">✕ Limpar</button>
+  </div>
+
+  <!-- Logo distribuidor -->
+  <div class="logo-upload-wrap" onclick="document.getElementById('inp-logo-dist').click()" title="Clica para carregar logo do distribuidor">
+    <div class="campo-label">Logo Distribuidor</div>
+    <div class="logo-placeholder" id="logo-dist-placeholder">+ Logo</div>
+    <img id="logo-dist-img" style="display:none;height:48px;">
+    <input type="file" id="inp-logo-dist" accept="image/*" onchange="carregarLogo(this,'logo-dist-img','logo-dist-placeholder','logo-dist-cab')">
+  </div>
+
+  <!-- Logo cliente -->
+  <div class="logo-upload-wrap" onclick="document.getElementById('inp-logo-cli').click()" title="Clica para carregar logo do cliente">
+    <div class="campo-label">Logo Cliente</div>
+    <div class="logo-placeholder" id="logo-cli-placeholder">+ Logo</div>
+    <img id="logo-cli-img" style="display:none;height:48px;">
+    <input type="file" id="inp-logo-cli" accept="image/*" onchange="carregarLogo(this,'logo-cli-img','logo-cli-placeholder','logo-cli-cab')">
+  </div>
+</div>
+
+<!-- ÁREA DE IMPRESSÃO -->
+<div id="area-impressao">
+
+  <!-- Cabeçalho -->
+  <div id="cabecalho">
+    <div>
+      <img src="img/logo_sutter.png" id="logo-sutter-cab" style="height:52px;" onerror="this.style.display='none'">
+    </div>
+    <div id="info-cliente">
+      <div class="cliente-nome" id="cab-cliente">—</div>
+      <div class="macro-area" id="cab-macroArea">—</div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <img id="logo-dist-cab" style="display:none;height:48px;max-width:110px;object-fit:contain;">
+      <img id="logo-cli-cab" style="display:none;height:48px;max-width:110px;object-fit:contain;">
+    </div>
+  </div>
+
+  <!-- Tabela -->
+  <table id="tabela-plano">
+    <thead>
+      <tr>
+        <th class="td-aplicacao">Área de Aplicação</th>
+        <th class="td-produto">Produto</th>
+        <th class="td-freq">Frequência</th>
+        <th class="td-dilui">Diluição</th>
+        <th class="td-instrucoes">Instruções de Uso</th>
+        <th class="td-epi">EPI</th>
+        <th class="td-remove"></th>
+      </tr>
+    </thead>
+    <tbody id="corpo-tabela">
+    </tbody>
+  </table>
+
+  <div id="msg-vazio">Adiciona a primeira linha usando o painel acima.</div>
+
+  <!-- Contador -->
+  <div id="contador"><span id="n-linhas">0</span> / 6 linhas</div>
+
+  <!-- Rodapé -->
+  <div id="rodape">
+    Data: <input type="date" id="inp-data" style="margin-left:6px;">
+  </div>
+
+</div>
+
+<script>
+const MAX = 6;
+let catalogo = null;
+let nLinhas = 0;
+let fotoCounter = 0;
+
+// Caminhos base das imagens
+const PATH_PICT  = '';
+const PATH_APLIC = '';
+
+// Carregar catálogo
+fetch('catalogo.json')
+  .then(r => r.json())
+  .then(data => { catalogo = data; })
+  .catch(() => console.warn('catalogo.json não encontrado'));
+
+// Data de hoje por omissão
+document.getElementById('inp-data').valueAsDate = new Date();
+
+// ===== CABEÇALHO =====
+function actualizarCabecalho() {
+  const cli = document.getElementById('inp-cliente').value.trim() || '—';
+  const ma  = document.getElementById('sel-macroArea').value || '—';
+  document.getElementById('cab-cliente').textContent   = cli;
+  document.getElementById('cab-macroArea').textContent = ma;
+}
+
+// ===== LOGOS =====
+function carregarLogo(input, imgPainelId, placeholderId, imgCabId) {
+  if (!input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const src = e.target.result;
+    // Painel
+    const imgP = document.getElementById(imgPainelId);
+    imgP.src = src; imgP.style.display = 'block';
+    document.getElementById(placeholderId).style.display = 'none';
+    // Cabeçalho
+    const imgC = document.getElementById(imgCabId);
+    imgC.src = src; imgC.style.display = 'block';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// ===== FILTROS PRODUTO / APLICAÇÃO =====
+function actualizarFiltros() {
+  if (!catalogo) return;
+  const ma = document.getElementById('sel-macroArea').value;
+  const selP = document.getElementById('sel-produto');
+  selP.innerHTML = '<option value="">-- Seleccionar produto --</option>';
+  document.getElementById('sel-aplicacao').innerHTML = '<option value="">-- Seleccionar produto --</option>';
+
+  if (!ma) return;
+
+  // Produtos únicos para esta macro área
+  const produtos = [...new Set(
+    catalogo.combinacoes
+      .filter(c => c.macroArea === ma)
+      .map(c => c.produto)
+  )].sort();
+
+  produtos.forEach(p => {
+    const o = document.createElement('option');
+    o.value = o.textContent = p;
+    selP.appendChild(o);
+  });
+}
+
+document.getElementById('sel-produto').addEventListener('change', function() {
+  if (!catalogo) return;
+  const ma = document.getElementById('sel-macroArea').value;
+  const prod = this.value;
+  const selA = document.getElementById('sel-aplicacao');
+  selA.innerHTML = '<option value="">-- Seleccionar aplicação --</option>';
+  if (!prod) return;
+
+  const combos = catalogo.combinacoes.filter(c => c.macroArea === ma && c.produto === prod);
+  combos.forEach(c => {
+    const aplics = c.aplicacao.split(',').map(x => x.trim());
+    aplics.forEach(aId => {
+      const a = catalogo.aplicacoes[aId];
+      if (!a) return;
+      const o = document.createElement('option');
+      o.value = JSON.stringify({ aplicacaoId: aId, comboIdx: catalogo.combinacoes.indexOf(c) });
+      o.textContent = a.nome;
+      selA.appendChild(o);
+    });
+  });
+});
+
+// ===== ADICIONAR LINHA =====
+function adicionarLinha() {
+  if (!catalogo) { alert('Catálogo não carregado. Aguarda um momento.'); return; }
+  if (nLinhas >= MAX) { alert('Máximo de ' + MAX + ' linhas atingido.'); return; }
+
+  const ma   = document.getElementById('sel-macroArea').value;
+  const prod = document.getElementById('sel-produto').value;
+  const aplV = document.getElementById('sel-aplicacao').value;
+
+  if (!ma)   { alert('Selecciona a Macro Área.'); return; }
+  if (!prod) { alert('Selecciona o Produto.'); return; }
+  if (!aplV) { alert('Selecciona a Aplicação.'); return; }
+
+  const { aplicacaoId, comboIdx } = JSON.parse(aplV);
+  const combo   = catalogo.combinacoes[comboIdx];
+  const aplicacao = catalogo.aplicacoes[aplicacaoId];
+
+  nLinhas++;
+  const rowId = 'linha_' + nLinhas + '_' + Date.now();
+  const fc = ++fotoCounter;
+
+  // Instruções HTML
+  let instrHtml = '';
+  combo.instrucoes.forEach(iId => {
+    const instr = catalogo.instrucoes[iId];
+    if (!instr) return;
+    const pictsHtml = instr.picts.map(p =>
+      `<img src="${PATH_PICT}${p}" class="pict-img" title="${instr.texto}">`
+    ).join('');
+    instrHtml += `
+      <div class="instrucao-row">
+        <div class="picts-wrap">${pictsHtml}</div>
+        <div class="instrucao-texto">${instr.texto}</div>
+      </div>`;
+  });
+
+  const tr = document.createElement('tr');
+  tr.id = rowId;
+  tr.innerHTML = `
+    <td class="td-aplicacao">
+      <img src="${PATH_APLIC}${aplicacao.img}" class="aplic-img" alt="${aplicacao.nome}">
+      <div class="aplic-nome">${aplicacao.nome}</div>
+    </td>
+    <td class="td-produto">
+      <div class="prod-foto-wrap" onclick="document.getElementById('pf_${fc}').click()" title="Clica para carregar foto do produto">
+        <img id="pf_img_${fc}" style="display:none;width:100%;height:100%;object-fit:contain;">
+        <div class="prod-foto-placeholder" id="pf_ph_${fc}">📷<br>foto</div>
+      </div>
+      <input type="file" id="pf_${fc}" accept="image/*" onchange="carregarFotoProd(this,${fc})">
+      <div class="prod-nome">${prod}</div>
+    </td>
+    <td class="td-freq">
+      <input type="text" class="freq-input" placeholder="Diário" value="">
+    </td>
+    <td class="td-dilui">
+      <input type="text" class="dilui-texto" placeholder="ex: Puro / 1:10" value="">
+      <div class="equip-foto-wrap" onclick="document.getElementById('ef_${fc}').click()" title="Clica para carregar foto do equipamento">
+        <img id="ef_img_${fc}" style="display:none;width:100%;height:100%;object-fit:contain;">
+        <div class="equip-foto-placeholder" id="ef_ph_${fc}">📷</div>
+      </div>
+      <input type="file" id="ef_${fc}" accept="image/*" onchange="carregarFotoEquip(this,${fc})">
+    </td>
+    <td class="td-instrucoes">${instrHtml}</td>
+    <td class="td-epi">
+      <div class="epi-wrap"><div class="epi-placeholder">—</div></div>
+    </td>
+    <td class="td-remove">
+      <button class="btn-remove" onclick="removerLinha('${rowId}')" title="Remover linha">✕</button>
+    </td>`;
+
+  document.getElementById('corpo-tabela').appendChild(tr);
+  actualizarContador();
+  document.getElementById('msg-vazio').style.display = 'none';
+}
+
+// ===== FOTOS =====
+function carregarFotoProd(input, fc) {
+  if (!input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = document.getElementById('pf_img_' + fc);
+    img.src = e.target.result; img.style.display = 'block';
+    document.getElementById('pf_ph_' + fc).style.display = 'none';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function carregarFotoEquip(input, fc) {
+  if (!input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = document.getElementById('ef_img_' + fc);
+    img.src = e.target.result; img.style.display = 'block';
+    document.getElementById('ef_ph_' + fc).style.display = 'none';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// ===== REMOVER / LIMPAR =====
+function removerLinha(rowId) {
+  const el = document.getElementById(rowId);
+  if (el) { el.remove(); nLinhas--; actualizarContador(); }
+  if (nLinhas === 0) document.getElementById('msg-vazio').style.display = 'block';
+}
+
+function limparTudo() {
+  if (!confirm('Limpar todas as linhas?')) return;
+  document.getElementById('corpo-tabela').innerHTML = '';
+  nLinhas = 0; actualizarContador();
+  document.getElementById('msg-vazio').style.display = 'block';
+}
+
+function actualizarContador() {
+  document.getElementById('n-linhas').textContent = nLinhas;
+}
+
+// Mostrar msg vazio no início
+document.getElementById('msg-vazio').style.display = 'block';
+</script>
+</body>
+</html>
