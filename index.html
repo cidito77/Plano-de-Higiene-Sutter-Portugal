@@ -92,7 +92,7 @@ input[type="file"] { display: none; }
 }
 #tabela-plano thead th {
   padding: 6px 5px; font-size: 11px; text-align: center;
-  border: 1px solid #0d2a45; font-weight: bold; text-transform: uppercase;
+  border: none; font-weight: bold; text-transform: uppercase;
 }
 
 /* Linhas */
@@ -176,14 +176,18 @@ input[type="file"] { display: none; }
 #rodape {
   padding: 6px 14px; border-top: 1px solid #ddd;
   display: flex; justify-content: space-between; align-items: center;
-  font-size: 10px; color: #888;
+  font-size: 10px; color: #333;
 }
 #rodape input[type="date"] {
   border: 1px solid #ddd; border-radius: 3px; padding: 2px 5px;
-  font-size: 10px; color: #666;
+  font-family: Arial, sans-serif; font-size: 10px; color: #333;
 }
-.rodape-dist { display: flex; align-items: center; gap: 8px; }
+.rodape-dist { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .rodape-dist span:empty { display: none; }
+#inp-dist-contactos {
+  border: 1px solid #ccc; border-radius: 3px; padding: 2px 5px;
+  font-family: Arial, sans-serif; font-size: 10px; color: #333; min-width: 220px;
+}
 
 /* Contador */
 #contador {
@@ -196,7 +200,7 @@ input[type="file"] { display: none; }
 @media print {
   body { background: #fff; }
   #painel { display: none !important; }
-  #area-impressao { box-shadow: none; margin: 0; max-width: 100%; }
+  #area-impressao { box-shadow: none; margin: 0; max-width: 100%; padding-bottom: 34px; }
   #contador { display: none; }
   .btn-remove { display: none; }
   .td-remove { display: none; }
@@ -206,6 +210,12 @@ input[type="file"] { display: none; }
   #rodape input[type="date"] { border: none; }
   .prod-foto-wrap { border: none; }
   .equip-foto-wrap { border: none; }
+  #rodape {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #fff;
+    border-top: 1px solid #ddd;
+  }
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
@@ -283,8 +293,8 @@ input[type="file"] { display: none; }
     <input type="text" id="inp-dist-nome" placeholder="Nome do distribuidor" oninput="actualizarRodape()">
   </div>
   <div>
-    <div class="campo-label">Contacto do Distribuidor</div>
-    <input type="text" id="inp-dist-contacto" placeholder="Telefone / email" oninput="actualizarRodape()">
+    <div class="campo-label">Morada, Tlf, Tlm, Email</div>
+    <input type="text" id="inp-dist-contactos" placeholder="Morada, Tlf, Tlm, Email" oninput="actualizarRodape()">
   </div>
   <div class="logo-upload-wrap" onclick="document.getElementById('inp-logo-dist').click()" title="Clica para carregar logo do distribuidor">
     <div class="campo-label">Logo Distribuidor</div>
@@ -339,7 +349,7 @@ input[type="file"] { display: none; }
     <div class="rodape-dist">
       <img id="logo-dist-rod" style="display:none;height:30px;max-width:90px;object-fit:contain;">
       <span id="rod-dist-nome"></span>
-      <span id="rod-dist-contacto"></span>
+      <span id="rod-dist-contactos"></span>
     </div>
     <div>Data: <input type="date" id="inp-data" style="margin-left:6px;"></div>
   </div>
@@ -375,10 +385,10 @@ function actualizarCabecalho() {
 }
 
 function actualizarRodape() {
-  const nome     = document.getElementById('inp-dist-nome').value.trim();
-  const contacto = document.getElementById('inp-dist-contacto').value.trim();
-  document.getElementById('rod-dist-nome').textContent     = nome;
-  document.getElementById('rod-dist-contacto').textContent = contacto ? ('· ' + contacto) : '';
+  const nome      = document.getElementById('inp-dist-nome').value.trim();
+  const contactos = document.getElementById('inp-dist-contactos').value.trim();
+  document.getElementById('rod-dist-nome').textContent      = nome || 'Distribuidor';
+  document.getElementById('rod-dist-contactos').textContent = contactos ? ('· ' + contactos) : '';
 }
 
 // ===== LOGOS =====
@@ -571,6 +581,7 @@ function actualizarContador() {
 
 // Mostrar msg vazio no início
 document.getElementById('msg-vazio').style.display = 'block';
+actualizarRodape();
 </script>
 </body>
 </html>
