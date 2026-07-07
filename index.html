@@ -184,10 +184,6 @@ input[type="file"] { display: none; }
 }
 .rodape-dist { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .rodape-dist span:empty { display: none; }
-#inp-dist-contactos {
-  border: 1px solid #ccc; border-radius: 3px; padding: 2px 5px;
-  font-family: Arial, sans-serif; font-size: 10px; color: #333; min-width: 220px;
-}
 
 /* Contador */
 #contador {
@@ -293,8 +289,20 @@ input[type="file"] { display: none; }
     <input type="text" id="inp-dist-nome" placeholder="Nome do distribuidor" oninput="actualizarRodape()">
   </div>
   <div>
-    <div class="campo-label">Morada, Tlf, Tlm, Email</div>
-    <input type="text" id="inp-dist-contactos" placeholder="Morada, Tlf, Tlm, Email" oninput="actualizarRodape()">
+    <div class="campo-label">Morada</div>
+    <input type="text" id="inp-dist-morada" placeholder="Morada" oninput="actualizarRodape()">
+  </div>
+  <div>
+    <div class="campo-label">Telefone</div>
+    <input type="text" id="inp-dist-tlf" placeholder="Telefone" oninput="actualizarRodape()">
+  </div>
+  <div>
+    <div class="campo-label">Telemóvel</div>
+    <input type="text" id="inp-dist-tlm" placeholder="Telemóvel" oninput="actualizarRodape()">
+  </div>
+  <div>
+    <div class="campo-label">Email</div>
+    <input type="text" id="inp-dist-email" placeholder="Email" oninput="actualizarRodape()">
   </div>
   <div class="logo-upload-wrap" onclick="document.getElementById('inp-logo-dist').click()" title="Clica para carregar logo do distribuidor">
     <div class="campo-label">Logo Distribuidor</div>
@@ -385,10 +393,20 @@ function actualizarCabecalho() {
 }
 
 function actualizarRodape() {
-  const nome      = document.getElementById('inp-dist-nome').value.trim();
-  const contactos = document.getElementById('inp-dist-contactos').value.trim();
+  const nome   = document.getElementById('inp-dist-nome').value.trim();
+  const morada = document.getElementById('inp-dist-morada').value.trim();
+  const tlf    = document.getElementById('inp-dist-tlf').value.trim();
+  const tlm    = document.getElementById('inp-dist-tlm').value.trim();
+  const email  = document.getElementById('inp-dist-email').value.trim();
+
+  const partes = [];
+  if (morada) partes.push(morada);
+  if (tlf)    partes.push('Tel: ' + tlf);
+  if (tlm)    partes.push('Tlm: ' + tlm);
+  if (email)  partes.push(email);
+
   document.getElementById('rod-dist-nome').textContent      = nome || 'Distribuidor';
-  document.getElementById('rod-dist-contactos').textContent = contactos ? ('· ' + contactos) : '';
+  document.getElementById('rod-dist-contactos').textContent = partes.length ? ('· ' + partes.join(' · ')) : '';
 }
 
 // ===== LOGOS =====
