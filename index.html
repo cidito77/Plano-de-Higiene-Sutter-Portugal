@@ -73,12 +73,12 @@ input[type="file"] { display: none; }
   -webkit-print-color-adjust: exact;
 }
 #logo-sutter { height: 52px; }
+.cab-esquerda { display: flex; align-items: center; }
 #info-cliente { text-align: center; }
-#info-cliente .cliente-nome { font-size: 15px; font-weight: bold; color: #1A3A5C; }
+#info-cliente .plano-titulo { font-size: 17px; font-weight: bold; color: #1A3A5C; text-transform: uppercase; letter-spacing: 0.5px; }
 #info-cliente .macro-area { font-size: 13px; color: #0D9488; font-weight: bold; margin-top: 2px; }
-#logo-distribuidor-wrap img, #logo-cliente-wrap img {
-  height: 48px; max-width: 120px; object-fit: contain;
-}
+.cab-direita { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.cab-direita .cliente-nome { font-size: 13px; font-weight: bold; color: #1A3A5C; text-align: right; }
 
 /* ===== TABELA DO PLANO ===== */
 #tabela-plano { width: 100%; border-collapse: collapse; }
@@ -96,7 +96,7 @@ input[type="file"] { display: none; }
 }
 
 /* Linhas */
-#tabela-plano tbody tr { border-bottom: 1px solid #ddd; }
+#tabela-plano tbody tr { border-bottom: 2px solid #1A3A5C; }
 #tabela-plano tbody tr:nth-child(even) { background: #f7f9fc; }
 #tabela-plano tbody td {
   padding: 5px 5px; vertical-align: middle; border: 1px solid #ddd;
@@ -128,13 +128,13 @@ input[type="file"] { display: none; }
 .freq-input:focus { outline: 1px solid #0D9488; }
 
 /* Coluna diluição */
-.td-dilui { width: 100px; }
+.td-dilui { width: 120px; }
 .dilui-texto {
   width: 100%; border: 1px solid #ccc; border-radius: 3px;
   padding: 3px 4px; font-size: 11px; text-align: center; margin-bottom: 3px;
 }
 .equip-foto-wrap {
-  width: 48px; height: 36px; border: 1px dashed #ccc; border-radius: 3px;
+  width: 72px; height: 54px; border: 1px dashed #ccc; border-radius: 3px;
   margin: 0 auto; cursor: pointer; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
 }
@@ -175,13 +175,15 @@ input[type="file"] { display: none; }
 /* ===== RODAPÉ ===== */
 #rodape {
   padding: 6px 14px; border-top: 1px solid #ddd;
-  display: flex; justify-content: flex-end; align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   font-size: 10px; color: #888;
 }
 #rodape input[type="date"] {
   border: 1px solid #ddd; border-radius: 3px; padding: 2px 5px;
   font-size: 10px; color: #666;
 }
+.rodape-dist { display: flex; align-items: center; gap: 8px; }
+.rodape-dist span:empty { display: none; }
 
 /* Contador */
 #contador {
@@ -197,6 +199,7 @@ input[type="file"] { display: none; }
   #area-impressao { box-shadow: none; margin: 0; max-width: 100%; }
   #contador { display: none; }
   .btn-remove { display: none; }
+  .td-remove { display: none; }
   .prod-foto-placeholder { display: none; }
   .equip-foto-placeholder { display: none; }
   .freq-input, .dilui-texto { border: none; }
@@ -217,7 +220,7 @@ input[type="file"] { display: none; }
   <!-- Logo Sutter (fixo) -->
   <div>
     <div class="campo-label">Marca</div>
-    <img src="img/logo_sutter.png" id="logo-sutter-painel" style="height:40px;background:#fff;padding:3px;border-radius:3px;" onerror="this.style.display='none'">
+    <img src="logo_sutter.jpg" id="logo-sutter-painel" style="height:40px;background:#fff;padding:3px;border-radius:3px;" onerror="this.style.display='none'">
   </div>
 
   <!-- Cliente -->
@@ -266,20 +269,28 @@ input[type="file"] { display: none; }
     <button class="btn btn-clear" onclick="limparTudo()">✕ Limpar</button>
   </div>
 
-  <!-- Logo distribuidor -->
-  <div class="logo-upload-wrap" onclick="document.getElementById('inp-logo-dist').click()" title="Clica para carregar logo do distribuidor">
-    <div class="campo-label">Logo Distribuidor</div>
-    <div class="logo-placeholder" id="logo-dist-placeholder">+ Logo</div>
-    <img id="logo-dist-img" style="display:none;height:48px;">
-    <input type="file" id="inp-logo-dist" accept="image/*" onchange="carregarLogo(this,'logo-dist-img','logo-dist-placeholder','logo-dist-cab')">
-  </div>
-
   <!-- Logo cliente -->
   <div class="logo-upload-wrap" onclick="document.getElementById('inp-logo-cli').click()" title="Clica para carregar logo do cliente">
     <div class="campo-label">Logo Cliente</div>
     <div class="logo-placeholder" id="logo-cli-placeholder">+ Logo</div>
     <img id="logo-cli-img" style="display:none;height:48px;">
     <input type="file" id="inp-logo-cli" accept="image/*" onchange="carregarLogo(this,'logo-cli-img','logo-cli-placeholder','logo-cli-cab')">
+  </div>
+
+  <!-- Distribuidor (rodapé) -->
+  <div>
+    <div class="campo-label">Nome do Distribuidor</div>
+    <input type="text" id="inp-dist-nome" placeholder="Nome do distribuidor" oninput="actualizarRodape()">
+  </div>
+  <div>
+    <div class="campo-label">Contacto do Distribuidor</div>
+    <input type="text" id="inp-dist-contacto" placeholder="Telefone / email" oninput="actualizarRodape()">
+  </div>
+  <div class="logo-upload-wrap" onclick="document.getElementById('inp-logo-dist').click()" title="Clica para carregar logo do distribuidor">
+    <div class="campo-label">Logo Distribuidor</div>
+    <div class="logo-placeholder" id="logo-dist-placeholder">+ Logo</div>
+    <img id="logo-dist-img" style="display:none;height:48px;">
+    <input type="file" id="inp-logo-dist" accept="image/*" onchange="carregarLogo(this,'logo-dist-img','logo-dist-placeholder','logo-dist-rod')">
   </div>
 </div>
 
@@ -288,16 +299,16 @@ input[type="file"] { display: none; }
 
   <!-- Cabeçalho -->
   <div id="cabecalho">
-    <div>
-      <img src="img/logo_sutter.png" id="logo-sutter-cab" style="height:52px;" onerror="this.style.display='none'">
+    <div class="cab-esquerda">
+      <img src="logo_sutter.jpg" id="logo-sutter-cab" style="height:52px;" onerror="this.style.display='none'">
     </div>
     <div id="info-cliente">
-      <div class="cliente-nome" id="cab-cliente">—</div>
+      <div class="plano-titulo">Plano de Higiene</div>
       <div class="macro-area" id="cab-macroArea">—</div>
     </div>
-    <div style="display:flex;gap:10px;align-items:center;">
-      <img id="logo-dist-cab" style="display:none;height:48px;max-width:110px;object-fit:contain;">
-      <img id="logo-cli-cab" style="display:none;height:48px;max-width:110px;object-fit:contain;">
+    <div class="cab-direita">
+      <img id="logo-cli-cab" style="display:none;height:44px;max-width:120px;object-fit:contain;">
+      <div class="cliente-nome" id="cab-cliente">—</div>
     </div>
   </div>
 
@@ -325,7 +336,12 @@ input[type="file"] { display: none; }
 
   <!-- Rodapé -->
   <div id="rodape">
-    Data: <input type="date" id="inp-data" style="margin-left:6px;">
+    <div class="rodape-dist">
+      <img id="logo-dist-rod" style="display:none;height:30px;max-width:90px;object-fit:contain;">
+      <span id="rod-dist-nome"></span>
+      <span id="rod-dist-contacto"></span>
+    </div>
+    <div>Data: <input type="date" id="inp-data" style="margin-left:6px;"></div>
   </div>
 
 </div>
@@ -356,6 +372,13 @@ function actualizarCabecalho() {
   const ma  = document.getElementById('sel-macroArea').value || '—';
   document.getElementById('cab-cliente').textContent   = cli;
   document.getElementById('cab-macroArea').textContent = ma;
+}
+
+function actualizarRodape() {
+  const nome     = document.getElementById('inp-dist-nome').value.trim();
+  const contacto = document.getElementById('inp-dist-contacto').value.trim();
+  document.getElementById('rod-dist-nome').textContent     = nome;
+  document.getElementById('rod-dist-contacto').textContent = contacto ? ('· ' + contacto) : '';
 }
 
 // ===== LOGOS =====
