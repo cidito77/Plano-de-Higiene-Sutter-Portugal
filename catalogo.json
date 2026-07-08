@@ -722,7 +722,7 @@
     },
     {
       "produto": "Terso",
-      "macroArea": "WC / Geral",
+      "macroArea": "Áreas Comuns",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -734,7 +734,62 @@
     },
     {
       "produto": "Emerald",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -745,7 +800,62 @@
     },
     {
       "produto": "Emerald Easy",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald Easy",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald Easy",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald Easy",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald Easy",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Emerald Easy",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -756,7 +866,62 @@
     },
     {
       "produto": "Pine",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -767,7 +932,62 @@
     },
     {
       "produto": "Pine Free",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Free",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Free",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Free",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Free",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Free",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -778,7 +998,62 @@
     },
     {
       "produto": "Pine Easy",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Easy",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Easy",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Easy",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Easy",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Pine Easy",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -789,7 +1064,62 @@
     },
     {
       "produto": "Apple",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -800,7 +1130,62 @@
     },
     {
       "produto": "Apple Easy",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple Easy",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple Easy",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple Easy",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple Easy",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Apple Easy",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -811,7 +1196,62 @@
     },
     {
       "produto": "Cologne",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Cologne",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Cologne",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Cologne",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Cologne",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Cologne",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -822,7 +1262,62 @@
     },
     {
       "produto": "Flower",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -833,7 +1328,62 @@
     },
     {
       "produto": "Flower Easy",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower Easy",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower Easy",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower Easy",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower Easy",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Flower Easy",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -844,7 +1394,62 @@
     },
     {
       "produto": "Wood",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Wood",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Wood",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Wood",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Wood",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Wood",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -855,7 +1460,62 @@
     },
     {
       "produto": "Lindet",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Lindet",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Lindet",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Lindet",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Lindet",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "3"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Lindet",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -866,7 +1526,7 @@
     },
     {
       "produto": "Onda Next",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -877,7 +1537,53 @@
     },
     {
       "produto": "Onda Next",
-      "macroArea": "WC / Geral",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next",
+      "macroArea": "Bloco",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next",
+      "macroArea": "Quartos",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next",
+      "macroArea": "Consultório",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next",
+      "macroArea": "Bloco",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -889,7 +1595,7 @@
     },
     {
       "produto": "Onda Lime Next",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -900,7 +1606,53 @@
     },
     {
       "produto": "Onda Lime Next",
-      "macroArea": "WC / Geral",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Lime Next",
+      "macroArea": "Bloco",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Lime Next",
+      "macroArea": "Quartos",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Lime Next",
+      "macroArea": "Consultório",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Lime Next",
+      "macroArea": "Bloco",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -912,7 +1664,7 @@
     },
     {
       "produto": "Onda Next Easy",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -923,7 +1675,53 @@
     },
     {
       "produto": "Onda Next Easy",
-      "macroArea": "WC / Geral",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next Easy",
+      "macroArea": "Bloco",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next Easy",
+      "macroArea": "Quartos",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next Easy",
+      "macroArea": "Consultório",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next Easy",
+      "macroArea": "Bloco",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -935,7 +1733,7 @@
     },
     {
       "produto": "Disinfectant Next",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -946,7 +1744,53 @@
     },
     {
       "produto": "Disinfectant Next",
-      "macroArea": "WC / Geral",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Disinfectant Next",
+      "macroArea": "Bloco",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Disinfectant Next",
+      "macroArea": "Quartos",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Disinfectant Next",
+      "macroArea": "Consultório",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Disinfectant Next",
+      "macroArea": "Bloco",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -958,7 +1802,7 @@
     },
     {
       "produto": "Onda Next RTU",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -970,7 +1814,76 @@
     },
     {
       "produto": "Onda Next RTU",
-      "macroArea": "WC / Geral",
+      "macroArea": "Consultório",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next RTU",
+      "macroArea": "Escritório",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next RTU",
+      "macroArea": "Bloco",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next RTU",
+      "macroArea": "Quartos",
+      "aplicacao": "12",
+      "instrucoes": [
+        "1",
+        "2",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next RTU",
+      "macroArea": "Consultório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "1",
+        "2",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next RTU",
+      "macroArea": "Escritório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "1",
+        "2",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Onda Next RTU",
+      "macroArea": "Bloco",
       "aplicacao": "12",
       "instrucoes": [
         "1",
@@ -981,7 +1894,7 @@
     },
     {
       "produto": "RB-1",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
       "aplicacao": "11",
       "instrucoes": [
         "16",
@@ -991,7 +1904,107 @@
     },
     {
       "produto": "RB-1",
-      "macroArea": "WC / Geral",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Quartos",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Consultório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Escritório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Bloco",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Hall",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Quartos",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Consultório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Escritório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-1",
+      "macroArea": "Bloco",
       "aplicacao": "12",
       "instrucoes": [
         "16",
@@ -1001,7 +2014,62 @@
     },
     {
       "produto": "RB-2",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-2",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-2",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-2",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-2",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-2",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -1012,7 +2080,7 @@
     },
     {
       "produto": "RB-3",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -1023,7 +2091,30 @@
     },
     {
       "produto": "RB-3",
-      "macroArea": "WC / Geral",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-3",
+      "macroArea": "Hall",
+      "aplicacao": "10",
+      "instrucoes": [
+        "1",
+        "2",
+        "4",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-3",
+      "macroArea": "Áreas Comuns",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -1035,7 +2126,62 @@
     },
     {
       "produto": "RB-4",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-4",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-4",
+      "macroArea": "Quartos",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-4",
+      "macroArea": "Consultório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-4",
+      "macroArea": "Escritório",
+      "aplicacao": "9",
+      "instrucoes": [
+        "12",
+        "2",
+        "11"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "RB-4",
+      "macroArea": "Bloco",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -1046,7 +2192,7 @@
     },
     {
       "produto": "Ruby",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -1057,7 +2203,7 @@
     },
     {
       "produto": "Ruby Free",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -1068,7 +2214,7 @@
     },
     {
       "produto": "Ruby Easy",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -1079,7 +2225,7 @@
     },
     {
       "produto": "Restroom",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -1090,7 +2236,7 @@
     },
     {
       "produto": "Decalc",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -1101,7 +2247,7 @@
     },
     {
       "produto": "Decalc",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -1113,7 +2259,7 @@
     },
     {
       "produto": "Clorogel",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "9",
       "instrucoes": [
         "12",
@@ -1124,7 +2270,7 @@
     },
     {
       "produto": "Clorogel",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "16",
@@ -1135,7 +2281,7 @@
     },
     {
       "produto": "BK-1",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -1146,7 +2292,7 @@
     },
     {
       "produto": "BK-3",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "1",
@@ -1157,7 +2303,7 @@
     },
     {
       "produto": "Diamond",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
       "aplicacao": "11",
       "instrucoes": [
         "16",
@@ -1167,7 +2313,107 @@
     },
     {
       "produto": "Diamond",
-      "macroArea": "WC / Geral",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Quartos",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Consultório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Escritório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Bloco",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Hall",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Quartos",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Consultório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Escritório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond",
+      "macroArea": "Bloco",
       "aplicacao": "12",
       "instrucoes": [
         "16",
@@ -1177,7 +2423,7 @@
     },
     {
       "produto": "Diamond Easy",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
       "aplicacao": "11",
       "instrucoes": [
         "16",
@@ -1187,7 +2433,107 @@
     },
     {
       "produto": "Diamond Easy",
-      "macroArea": "WC / Geral",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Quartos",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Consultório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Escritório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Bloco",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Hall",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Quartos",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Consultório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Escritório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Easy",
+      "macroArea": "Bloco",
       "aplicacao": "12",
       "instrucoes": [
         "16",
@@ -1197,7 +2543,7 @@
     },
     {
       "produto": "Diamond Free",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
       "aplicacao": "11",
       "instrucoes": [
         "16",
@@ -1207,7 +2553,107 @@
     },
     {
       "produto": "Diamond Free",
-      "macroArea": "WC / Geral",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Quartos",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Consultório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Escritório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Bloco",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Hall",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Quartos",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Consultório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Escritório",
+      "aplicacao": "12",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Diamond Free",
+      "macroArea": "Bloco",
       "aplicacao": "12",
       "instrucoes": [
         "16",
@@ -1217,7 +2663,57 @@
     },
     {
       "produto": "Plural (PB)",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural (PB)",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural (PB)",
+      "macroArea": "Quartos",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural (PB)",
+      "macroArea": "Consultório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural (PB)",
+      "macroArea": "Escritório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural (PB)",
+      "macroArea": "Bloco",
       "aplicacao": "11",
       "instrucoes": [
         "16",
@@ -1227,7 +2723,57 @@
     },
     {
       "produto": "Plural Plus",
-      "macroArea": "WC / Geral",
+      "macroArea": "Hall",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural Plus",
+      "macroArea": "Áreas Comuns",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural Plus",
+      "macroArea": "Quartos",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural Plus",
+      "macroArea": "Consultório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural Plus",
+      "macroArea": "Escritório",
+      "aplicacao": "11",
+      "instrucoes": [
+        "16",
+        "15"
+      ],
+      "epi": "1"
+    },
+    {
+      "produto": "Plural Plus",
+      "macroArea": "Bloco",
       "aplicacao": "11",
       "instrucoes": [
         "16",
@@ -1237,7 +2783,7 @@
     },
     {
       "produto": "POM WC",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "13",
@@ -1248,7 +2794,7 @@
     },
     {
       "produto": "WC Rein",
-      "macroArea": "WC / Geral",
+      "macroArea": "Quartos",
       "aplicacao": "10",
       "instrucoes": [
         "13",
