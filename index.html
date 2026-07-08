@@ -4,8 +4,75 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plano de Higiene — Sutter Professional</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
-/* ===== GERAL ===== */
+/* ===== LOGIN ===== */
+#tela-login {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: #eef1f4;
+}
+#caixa-login {
+  background: #fff; border-radius: 6px; padding: 32px 30px; width: 320px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); text-align: center;
+}
+#caixa-login img { height: 40px; margin-bottom: 16px; }
+#caixa-login h2 { font-size: 16px; color: #1A3A5C; margin-bottom: 18px; }
+#caixa-login input {
+  width: 100%; padding: 9px 10px; margin-bottom: 10px; border: 1px solid #ccc;
+  border-radius: 4px; font-size: 13px;
+}
+#caixa-login button {
+  width: 100%; padding: 10px; background: #0D9488; color: #fff; border: none;
+  border-radius: 4px; font-size: 13px; font-weight: bold; cursor: pointer; margin-top: 4px;
+}
+#caixa-login button:hover { background: #0b7d73; }
+#login-erro { color: #c0392b; font-size: 12px; margin-top: 8px; min-height: 16px; }
+
+/* ===== BARRA DE UTILIZADOR ===== */
+#barra-user {
+  background: #12293f; color: #cfe0f0; padding: 6px 20px; font-size: 12px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+#barra-user .acoes { display: flex; gap: 14px; align-items: center; }
+#barra-user button, #barra-user a {
+  background: none; border: none; color: #cfe0f0; font-size: 12px; cursor: pointer;
+  text-decoration: underline; padding: 0;
+}
+#barra-user button:hover, #barra-user a:hover { color: #fff; }
+#badge-admin {
+  background: #0D9488; color: #fff; font-size: 10px; padding: 2px 6px;
+  border-radius: 3px; font-weight: bold; text-transform: uppercase;
+}
+
+/* ===== PAINEL "OS MEUS PLANOS" ===== */
+#overlay-planos {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  z-index: 50; align-items: flex-start; justify-content: center;
+}
+#caixa-planos {
+  background: #fff; border-radius: 6px; width: 720px; max-width: 92vw;
+  margin-top: 40px; max-height: 85vh; overflow-y: auto; padding: 20px 24px;
+}
+#caixa-planos h2 { color: #1A3A5C; font-size: 16px; margin-bottom: 4px; }
+#caixa-planos .sub { font-size: 11px; color: #888; margin-bottom: 14px; }
+#caixa-planos .fechar {
+  float: right; cursor: pointer; font-size: 18px; color: #888; background: none; border: none;
+}
+table.tbl-planos { width: 100%; border-collapse: collapse; font-size: 12px; }
+table.tbl-planos th {
+  text-align: left; background: #f0f3f6; padding: 6px 8px; color: #1A3A5C; font-size: 11px;
+  text-transform: uppercase;
+}
+table.tbl-planos td { padding: 7px 8px; border-bottom: 1px solid #eee; vertical-align: middle; }
+table.tbl-planos .acoes-plano button {
+  font-size: 11px; padding: 4px 8px; border: none; border-radius: 3px; cursor: pointer; margin-right: 4px;
+  color: #fff;
+}
+.btn-abrir { background: #1A3A5C; }
+.btn-clonar { background: #0D9488; }
+.btn-apagar { background: #c0392b; }
+#toggle-admin-planos { margin-bottom: 10px; font-size: 12px; }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: Arial, sans-serif; font-size: 13px; background: #f0f0f0; color: #222; }
 
@@ -199,6 +266,8 @@ input[type="file"] { display: none; }
 @media print {
   body { background: #fff; }
   #painel { display: none !important; }
+  #barra-user { display: none !important; }
+  #overlay-planos { display: none !important; }
   #area-impressao { box-shadow: none; margin: 0; max-width: 100%; padding-bottom: 75px; }
   #contador { display: none; }
   .btn-remove { display: none; }
@@ -222,9 +291,35 @@ input[type="file"] { display: none; }
 </head>
 <body>
 
+<!-- ECRÃ DE LOGIN -->
+<div id="tela-login">
+  <div id="caixa-login">
+    <img src="logo_sutter.jpg" onerror="this.style.display='none'">
+    <h2>Plano de Higiene — Acesso</h2>
+    <input type="email" id="login-email" placeholder="Email" autocomplete="username">
+    <input type="password" id="login-pass" placeholder="Password" autocomplete="current-password">
+    <button onclick="entrar()">Entrar</button>
+    <div id="login-erro"></div>
+  </div>
+</div>
+
+<!-- APP (só visível depois de autenticado) -->
+<div id="app" style="display:none;">
+
+<div id="barra-user">
+  <div><span id="user-email"></span> <span id="badge-admin" style="display:none;">Admin</span></div>
+  <div class="acoes">
+    <a onclick="abrirPainelPlanos(false)">📂 Os meus planos</a>
+    <a id="link-todos-planos" onclick="abrirPainelPlanos(true)" style="display:none;">🗂 Todos os planos (admin)</a>
+    <button onclick="guardarPlano()">💾 Guardar plano</button>
+    <button onclick="sairSessao()">Sair</button>
+  </div>
+</div>
+
 <!-- PAINEL DE CONTROLO -->
 <div id="painel">
   <h1>🧹 Plano de Higiene — Construtor</h1>
+
 
   <!-- Logo Sutter (fixo) -->
   <div>
@@ -368,6 +463,20 @@ input[type="file"] { display: none; }
     <div>Data: <input type="date" id="inp-data" style="margin-left:6px;"></div>
   </div>
 
+</div>
+<!-- fim #area-impressao -->
+
+</div>
+<!-- fim #app -->
+
+<!-- OVERLAY "OS MEUS PLANOS" -->
+<div id="overlay-planos">
+  <div id="caixa-planos">
+    <button class="fechar" onclick="fecharPainelPlanos()">✕</button>
+    <h2 id="titulo-planos">Os meus planos</h2>
+    <div class="sub" id="sub-planos"></div>
+    <div id="lista-planos">A carregar…</div>
+  </div>
 </div>
 
 <script>
@@ -591,6 +700,10 @@ function removerLinha(rowId) {
 
 function limparTudo() {
   if (!confirm('Limpar todas as linhas?')) return;
+  limparSilencioso();
+}
+
+function limparSilencioso() {
   document.getElementById('corpo-tabela').innerHTML = '';
   nLinhas = 0; actualizarContador();
   document.getElementById('msg-vazio').style.display = 'block';
@@ -603,6 +716,287 @@ function actualizarContador() {
 // Mostrar msg vazio no início
 document.getElementById('msg-vazio').style.display = 'block';
 actualizarRodape();
+
+// ============================================================
+// AUTENTICAÇÃO E GESTÃO DE PLANOS (Supabase)
+// ============================================================
+const SUPABASE_URL = 'https://wrxqbqgqwxbcwnnfwfcf.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyeHFicWdxd3hiY3dubmZ3ZmNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM1MjI3MTIsImV4cCI6MjA5OTA5ODcxMn0.ATDsze5olSyrix-R6DEohl3MwE2klVx0_qjSeE-aXcg';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let perfilAtual = null;   // { id, email, nome, role }
+let planoAtualId = null;  // null = novo plano; caso contrário, está a editar este id
+
+async function iniciar() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) {
+    await entrarComSessao(session);
+  } else {
+    document.getElementById('tela-login').style.display = 'flex';
+    document.getElementById('app').style.display = 'none';
+  }
+}
+
+async function entrar() {
+  const email = document.getElementById('login-email').value.trim();
+  const pass  = document.getElementById('login-pass').value;
+  const erroEl = document.getElementById('login-erro');
+  erroEl.textContent = '';
+  if (!email || !pass) { erroEl.textContent = 'Preenche email e password.'; return; }
+
+  const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
+  if (error) { erroEl.textContent = 'Email ou password incorretos.'; return; }
+  await entrarComSessao(data.session);
+}
+
+async function entrarComSessao(session) {
+  const { data: perfil, error } = await sb
+    .from('profiles')
+    .select('*')
+    .eq('id', session.user.id)
+    .single();
+
+  perfilAtual = perfil || { id: session.user.id, email: session.user.email, role: 'user' };
+
+  document.getElementById('tela-login').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  document.getElementById('user-email').textContent = perfilAtual.email;
+  if (perfilAtual.role === 'admin') {
+    document.getElementById('badge-admin').style.display = 'inline-block';
+    document.getElementById('link-todos-planos').style.display = 'inline';
+  }
+}
+
+async function sairSessao() {
+  await sb.auth.signOut();
+  location.reload();
+}
+
+document.getElementById('login-pass').addEventListener('keydown', e => {
+  if (e.key === 'Enter') entrar();
+});
+
+iniciar();
+
+// ===== SERIALIZAR / RECONSTRUIR LINHAS =====
+function serializarLinhas() {
+  const linhas = [];
+  document.querySelectorAll('#corpo-tabela tr').forEach(tr => {
+    const pfImg = tr.querySelector('[id^="pf_img_"]');
+    const efImg = tr.querySelector('[id^="ef_img_"]');
+    linhas.push({
+      aplicacaoNome: tr.querySelector('.aplic-nome').textContent,
+      aplicacaoImg: tr.querySelector('.aplic-img').getAttribute('src'),
+      produto: tr.querySelector('.prod-nome').textContent,
+      freq: tr.querySelector('.freq-input').value,
+      dilui: tr.querySelector('.dilui-texto').value,
+      prodFotoSrc: (pfImg && pfImg.style.display !== 'none') ? pfImg.src : null,
+      equipFotoSrc: (efImg && efImg.style.display !== 'none') ? efImg.src : null,
+      instrucoesHtml: tr.querySelector('.td-instrucoes').innerHTML,
+      epiHtml: tr.querySelector('.epi-wrap').innerHTML
+    });
+  });
+  return linhas;
+}
+
+function adicionarLinhaSnapshot(snap) {
+  if (nLinhas >= MAX) return;
+  nLinhas++;
+  const rowId = 'linha_' + nLinhas + '_' + Date.now() + '_' + Math.floor(Math.random()*1000);
+  const fc = ++fotoCounter;
+
+  const tr = document.createElement('tr');
+  tr.id = rowId;
+  tr.innerHTML = `
+    <td class="td-aplicacao">
+      <img src="${snap.aplicacaoImg}" class="aplic-img" alt="${snap.aplicacaoNome}">
+      <div class="aplic-nome">${snap.aplicacaoNome}</div>
+    </td>
+    <td class="td-produto">
+      <div class="prod-foto-wrap" onclick="document.getElementById('pf_${fc}').click()" title="Clica para carregar foto do produto">
+        <img id="pf_img_${fc}" style="${snap.prodFotoSrc ? '' : 'display:none;'}width:100%;height:100%;object-fit:contain;" ${snap.prodFotoSrc ? `src="${snap.prodFotoSrc}"` : ''}>
+        <div class="prod-foto-placeholder" id="pf_ph_${fc}" style="${snap.prodFotoSrc ? 'display:none;' : ''}">📷<br>foto</div>
+      </div>
+      <input type="file" id="pf_${fc}" accept="image/*" onchange="carregarFotoProd(this,${fc})">
+      <div class="prod-nome">${snap.produto}</div>
+    </td>
+    <td class="td-freq">
+      <input type="text" class="freq-input" placeholder="Diário" value="${snap.freq || ''}">
+    </td>
+    <td class="td-dilui">
+      <input type="text" class="dilui-texto" placeholder="ex: Puro / 1:10" value="${snap.dilui || ''}">
+      <div class="equip-foto-wrap" onclick="document.getElementById('ef_${fc}').click()" title="Clica para carregar foto do equipamento">
+        <img id="ef_img_${fc}" style="${snap.equipFotoSrc ? '' : 'display:none;'}width:100%;height:100%;object-fit:contain;" ${snap.equipFotoSrc ? `src="${snap.equipFotoSrc}"` : ''}>
+        <div class="equip-foto-placeholder" id="ef_ph_${fc}" style="${snap.equipFotoSrc ? 'display:none;' : ''}">📷</div>
+      </div>
+      <input type="file" id="ef_${fc}" accept="image/*" onchange="carregarFotoEquip(this,${fc})">
+    </td>
+    <td class="td-instrucoes">${snap.instrucoesHtml}</td>
+    <td class="td-epi">
+      <div class="epi-wrap">${snap.epiHtml}</div>
+    </td>
+    <td class="td-remove">
+      <button class="btn-remove" onclick="removerLinha('${rowId}')" title="Remover linha">✕</button>
+    </td>`;
+
+  document.getElementById('corpo-tabela').appendChild(tr);
+  actualizarContador();
+  document.getElementById('msg-vazio').style.display = 'none';
+}
+
+// ===== GUARDAR PLANO =====
+async function guardarPlano() {
+  if (!perfilAtual) return;
+  const cliente = document.getElementById('inp-cliente').value.trim();
+  const macroArea = document.getElementById('sel-macroArea').value;
+  if (!cliente) { alert('Preenche o Cliente / Estabelecimento antes de guardar.'); return; }
+  if (nLinhas === 0) { alert('Adiciona pelo menos uma linha antes de guardar.'); return; }
+
+  let nomePlano = document.getElementById('nome-plano-atual')
+    ? document.getElementById('nome-plano-atual').value
+    : null;
+  if (!nomePlano) {
+    nomePlano = prompt('Nome para este plano:', `${cliente} — ${macroArea}`);
+    if (!nomePlano) return;
+  }
+
+  const logoCliImg = document.getElementById('logo-cli-cab');
+  const logoDistImg = document.getElementById('logo-dist-rod');
+
+  const payload = {
+    user_id: perfilAtual.id,
+    nome_plano: nomePlano,
+    cliente: cliente,
+    macro_area: macroArea,
+    distribuidor: {
+      nome: document.getElementById('inp-dist-nome').value,
+      morada: document.getElementById('inp-dist-morada').value,
+      tlf: document.getElementById('inp-dist-tlf').value,
+      tlm: document.getElementById('inp-dist-tlm').value,
+      email: document.getElementById('inp-dist-email').value,
+      logo_base64: (logoDistImg.style.display !== 'none') ? logoDistImg.src : null
+    },
+    logo_cliente: (logoCliImg.style.display !== 'none') ? logoCliImg.src : null,
+    linhas: serializarLinhas(),
+    data_plano: document.getElementById('inp-data').value || null
+  };
+
+  let resp;
+  if (planoAtualId) {
+    resp = await sb.from('planos').update(payload).eq('id', planoAtualId).select().single();
+  } else {
+    resp = await sb.from('planos').insert(payload).select().single();
+  }
+
+  if (resp.error) {
+    alert('Erro ao guardar: ' + resp.error.message);
+    return;
+  }
+  planoAtualId = resp.data.id;
+  alert('Plano guardado: ' + nomePlano);
+}
+
+// ===== PAINEL "OS MEUS PLANOS" =====
+async function abrirPainelPlanos(todos) {
+  document.getElementById('overlay-planos').style.display = 'flex';
+  document.getElementById('titulo-planos').textContent = todos ? 'Todos os planos' : 'Os meus planos';
+  document.getElementById('sub-planos').textContent = todos
+    ? 'Planos criados por todas as pessoas.'
+    : 'Planos que criaste. Podes abrir para editar ou clonar para criar uma cópia.';
+  document.getElementById('lista-planos').innerHTML = 'A carregar…';
+
+  let query = sb.from('planos').select('*, profiles(email, nome)').order('updated_at', { ascending: false });
+  if (!todos) query = query.eq('user_id', perfilAtual.id);
+
+  const { data, error } = await query;
+  if (error) {
+    document.getElementById('lista-planos').innerHTML = 'Erro a carregar planos: ' + error.message;
+    return;
+  }
+  if (!data.length) {
+    document.getElementById('lista-planos').innerHTML = '<p style="color:#888;font-size:12px;">Ainda não há planos guardados.</p>';
+    return;
+  }
+
+  let html = `<table class="tbl-planos"><thead><tr>
+    <th>Nome</th><th>Cliente</th><th>Macro Área</th>${todos ? '<th>Criado por</th>' : ''}<th>Atualizado</th><th></th>
+  </tr></thead><tbody>`;
+  data.forEach(p => {
+    const dt = new Date(p.updated_at).toLocaleString('pt-PT', { dateStyle: 'short', timeStyle: 'short' });
+    html += `<tr>
+      <td>${p.nome_plano}</td>
+      <td>${p.cliente || '—'}</td>
+      <td>${p.macro_area || '—'}</td>
+      ${todos ? `<td>${p.profiles ? (p.profiles.nome || p.profiles.email) : '—'}</td>` : ''}
+      <td>${dt}</td>
+      <td class="acoes-plano">
+        <button class="btn-abrir" onclick="abrirPlano('${p.id}')">Abrir</button>
+        <button class="btn-clonar" onclick="clonarPlano('${p.id}')">Clonar</button>
+        ${(!todos || perfilAtual.role==='admin') ? `<button class="btn-apagar" onclick="apagarPlano('${p.id}')">Apagar</button>` : ''}
+      </td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  document.getElementById('lista-planos').innerHTML = html;
+}
+
+function fecharPainelPlanos() {
+  document.getElementById('overlay-planos').style.display = 'none';
+}
+
+async function carregarPlanoNoFormulario(id, comoClone) {
+  const { data: p, error } = await sb.from('planos').select('*').eq('id', id).single();
+  if (error) { alert('Erro ao abrir plano: ' + error.message); return; }
+
+  limparSilencioso();
+
+  document.getElementById('inp-cliente').value = p.cliente || '';
+  document.getElementById('sel-macroArea').value = p.macro_area || '';
+  actualizarCabecalho();
+  actualizarFiltros();
+
+  const dist = p.distribuidor || {};
+  document.getElementById('inp-dist-nome').value = dist.nome || '';
+  document.getElementById('inp-dist-morada').value = dist.morada || '';
+  document.getElementById('inp-dist-tlf').value = dist.tlf || '';
+  document.getElementById('inp-dist-tlm').value = dist.tlm || '';
+  document.getElementById('inp-dist-email').value = dist.email || '';
+  actualizarRodape();
+
+  if (dist.logo_base64) {
+    document.getElementById('logo-dist-img').src = dist.logo_base64;
+    document.getElementById('logo-dist-img').style.display = 'block';
+    document.getElementById('logo-dist-placeholder').style.display = 'none';
+    document.getElementById('logo-dist-rod').src = dist.logo_base64;
+    document.getElementById('logo-dist-rod').style.display = 'block';
+  }
+  if (p.logo_cliente) {
+    document.getElementById('logo-cli-img').src = p.logo_cliente;
+    document.getElementById('logo-cli-img').style.display = 'block';
+    document.getElementById('logo-cli-placeholder').style.display = 'none';
+    document.getElementById('logo-cli-cab').src = p.logo_cliente;
+    document.getElementById('logo-cli-cab').style.display = 'block';
+  }
+  if (p.data_plano) document.getElementById('inp-data').value = p.data_plano;
+
+  (p.linhas || []).forEach(snap => adicionarLinhaSnapshot(snap));
+
+  planoAtualId = comoClone ? null : p.id;
+  fecharPainelPlanos();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (comoClone) alert('Plano clonado. Altera o que precisares e clica em "Guardar plano" para criar uma cópia nova.');
+}
+
+function abrirPlano(id) { carregarPlanoNoFormulario(id, false); }
+function clonarPlano(id) { carregarPlanoNoFormulario(id, true); }
+
+async function apagarPlano(id) {
+  if (!confirm('Apagar este plano definitivamente?')) return;
+  const { error } = await sb.from('planos').delete().eq('id', id);
+  if (error) { alert('Erro ao apagar: ' + error.message); return; }
+  const todos = document.getElementById('titulo-planos').textContent === 'Todos os planos';
+  abrirPainelPlanos(todos);
+}
 </script>
 </body>
 </html>
